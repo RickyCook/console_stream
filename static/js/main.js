@@ -6,7 +6,6 @@ $(document).ready(function() {
 
 	function command_output(part) {
 		str = String.fromCharCode.apply(null, new Uint8Array(part))
-		console.log(str)
 		console_.append(str)
 	}
 	function send_command(command) {
@@ -17,7 +16,6 @@ $(document).ready(function() {
 			console_.text("$ " + command + "\n")
 		}
 		connection.onmessage = function(ev) {
-			console.log(ev)
 			command_output(ev.data)
 		}
 		connection.onerror = function(err) { alert("Error: " + err) }
